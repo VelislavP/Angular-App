@@ -10,8 +10,9 @@ import {
 import { Observable,of,throwError } from 'rxjs';
 import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
 import { User } from '../_models';
+import { AuthenticationService } from '../_services';
 
-const users: User[] = [{ id: 1, email: 'test', password: 'test', firstName: 'Test', lastName: 'User' }];
+const users: User = AuthenticationService.loggedInUser;
 
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
@@ -26,8 +27,6 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
     function handleRoute() {
         switch (true) {
-            case url.endsWith('/users/authenticate') && method === 'POST':
-                return authenticate();
             case url.endsWith('/users') && method === 'GET':
                 return getUsers();
             default:
@@ -37,21 +36,8 @@ export class FakeBackendInterceptor implements HttpInterceptor {
     }
 
     // route functions
-
-    function authenticate() {
-        const { email, password } = body;
-        const user = users.find(x => x.email === email && x.password === password);
-        if (!user) return error('Email or password is incorrect');
-        return ok({
-            id: user.id,
-            email: user.email,
-            firstName: user.firstName,
-            lastName: user.lastName,
-            token: 'fake-jwt-token'
-        })
-    }
-
     function getUsers() {
+        
         if (!isLoggedIn()) return unauthorized();
         return ok(users);
     }
@@ -67,11 +53,13 @@ export class FakeBackendInterceptor implements HttpInterceptor {
     }
 
     function unauthorized() {
+        console.log("401!");
         return throwError({ status: 401, error: { message: 'Unauthorised' } });
     }
 
     function isLoggedIn() {
-        return headers.get('Authorization') === 'Bearer fake-jwt-token';
+        console.log(AuthenticationService.loggedInUser.token);
+        return headers.get('Authorization') === `Bearer ${AuthenticationService.loggedInUser.token}`;
     }
   }
 }

@@ -1,21 +1,30 @@
-import { Component } from '@angular/core';
+import {AfterViewInit, Component, ElementRef} from '@angular/core';
 import { first } from 'rxjs/operators';
 
 import { User } from '../_models';
-import { UserService, AuthenticationService } from '../_services';
+import { UserService} from '../_services';
 
 @Component({ templateUrl: 'home.component.html' })
 export class HomeComponent {
     loading = false;
-    users: User[];
+    user: User;
 
     constructor(private userService: UserService) { }
 
     ngOnInit() {
         this.loading = true;
-        this.userService.getAll().pipe(first()).subscribe(users => {
+        this.userService.getAll().pipe(first()).subscribe(user => {
             this.loading = false;
-            this.users = users;
+            this.user = user;
         });
     }
+}
+@Component({ templateUrl: 'home.component.html' })
+export class AppComponent implements AfterViewInit {
+    constructor(private elementRef: ElementRef){
+
+    }
+    ngAfterViewInit(){
+      this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = 'white';
+   }
 }
