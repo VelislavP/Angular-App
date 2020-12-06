@@ -14,8 +14,7 @@ export class UserService {
         const header = new HttpHeaders()
         .set('Content-type', 'application/json');
         const body = JSON.stringify(user);
-        const baseUrl = 'https://localhost:44377' + '/signUp';
-        return this.http.post<User>(baseUrl, body, { headers: header} )
+        return this.http.post<User>('https://localhost:44377/signUp', body, { headers: header} )
     }
    
 }

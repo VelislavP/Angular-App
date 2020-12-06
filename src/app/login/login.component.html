@@ -1,29 +1,32 @@
-<div>
-    <div>
-        <div>
-            <a href="/" class="logo"></a>
-            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-                <div>
-                    <input type="text" formControlName="email" placeholder="Email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" value="email"/>
-                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-                        <div *ngIf="f.email.errors.required">Email is required</div>
-                    </div>
+
+<div id="wrapper">
+
+    <div id="centered">
+
+        <a href="/" class="logo"></a>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div>
+                <input type="text" formControlName="email" placeholder="Email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" value="email"/>
+                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                    <div *ngIf="f.email.errors.required">Email is required</div>
                 </div>
-                <div>
-                    <input type="password" formControlName="password" placeholder="Password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" value="password"/>
-                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-                        <div *ngIf="f.password.errors.required">Password is required</div>
-                    </div>
+            </div>
+            <div>
+                <input type="password" formControlName="password" placeholder="Password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" value="password"/>
+                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                    <div *ngIf="f.password.errors.required">Password is required</div>
                 </div>
-                <button [disabled]="loading" class="login-btn">
-                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-                    Log In
-                </button>
-                <div>
-                    <button routerLink="/signup" class="signup-btn">Sign Up</button>
-                </div>
-                <div *ngIf="error" class="error">{{error}}</div>
-            </form>
-        </div>
+            </div>
+            <button [disabled]="loading" class="login-btn">
+                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                Log In
+            </button>
+            <div>
+                <button routerLink="/signup" class="signup-btn">Sign Up</button>
+            </div>
+            <div *ngIf="error" class="error">{{error}}</div>
+        </form>
+
     </div>
+
 </div>
