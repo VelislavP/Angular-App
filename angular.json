@@ -120,5 +120,8 @@
       }
     }
   },
-  "defaultProject": "Angular-Login"
+  "defaultProject": "Angular-Login",
+  "cli": {
+    "analytics": false
+  }
 }

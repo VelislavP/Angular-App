@@ -3,11 +3,65 @@
 *{
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
-    font-size: 105%;
+    font-size: 103%;
+    box-sizing: border-box;
 }
 #index{
     background-color: #e0c641;
 }
+.logo {
+    margin: auto;
+    display: block;
+    text-indent: -9999px;
+    width: 280px;
+    height: 150px;
+    background: url(images/PictlLogo.svg);
+    background-size:  280px 150px;
+    background-repeat: no-repeat;
+}
 button{
     cursor: pointer;
+    margin-bottom: 5pt;
 }
+
+.login-btn, .signup-btn{
+    border-width: 1px;
+    height: 50px;
+    width: 100%;
+    box-shadow: 1.5pt 1.5pt 5pt rgba(0,0,0,.5);
+    outline: none;
+}
+
+.login-btn{
+    transition-delay: background-color 0.5s ease;
+    color: black;
+    background-color: #d4ac3c;
+    border-style: solid;
+    border-color: #d4ac3c;
+    
+}
+.login-btn:active{
+    border-color: white;
+}
+.login-btn:hover{
+    border-style: none;
+
+    background-color:#ddb443 ;
+}
+.signup-btn{
+    color: #ddb443;
+    background-color: black;
+    border-style: solid;
+    border-color: black;
+}
+
+.signup-btn:active{
+    border-color: white;
+}
+
+.signup-btn:hover{
+    background-color: rgba(0, 0, 0, 0.787);
+    border-style: none;
+}
+
+
