@@ -6,9 +6,27 @@
     font-size: 103%;
     box-sizing: border-box;
 }
-#index{
-    background-color: #e0c641;
+
+body{
+    margin: 0px !important;
+    background-color: white;
 }
+
+#wrapper{
+    width: 100vw;
+    height: 100vh;
+    margin: 0px;
+}
+
+#centered{
+    text-align: center;
+    position: absolute; 
+    top: 50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    width: 80%;
+}
+
 .logo {
     margin: auto;
     display: block;
@@ -21,14 +39,19 @@
 }
 button{
     cursor: pointer;
-    margin-bottom: 5pt;
+    margin-bottom: 10pt;
+}
+
+.error{
+    font-size: 1rem !important;
+    text-align: left;
+    margin-top: 5pt;
 }
 
 .login-btn, .signup-btn{
-    border-width: 1px;
+    border: 0px !important;
     height: 50px;
     width: 100%;
-    box-shadow: 1.5pt 1.5pt 5pt rgba(0,0,0,.5);
     outline: none;
 }
 
@@ -37,7 +60,7 @@ button{
     color: black;
     background-color: #d4ac3c;
     border-style: solid;
-    border-color: #d4ac3c;
+    box-shadow: 1.5pt 1.5pt 5pt rgba(0,0,0,.5);
     
 }
 .login-btn:active{
@@ -52,7 +75,7 @@ button{
     color: #ddb443;
     background-color: black;
     border-style: solid;
-    border-color: black;
+    box-shadow: 1.5pt 1.5pt 5pt rgba(0,0,0,.5);
 }
 
 .signup-btn:active{

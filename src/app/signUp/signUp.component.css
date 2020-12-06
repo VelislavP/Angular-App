@@ -3,12 +3,22 @@
     box-sizing: border-box !important;
 }
 
+#wrapper{
+    background-color: #ffcc33;
+}
+
+#centered{
+    max-width: 700px;
+}
+
 .button-div{
     padding: 5pt;
 }
 
 button{
     line-height: normal;
+    width: 100%;
+    max-width: 350px;
 }
 
 input {
@@ -19,7 +29,6 @@ input {
     border-width: 1px;
     outline: none;
     height: 48px;
-    
     position: relative;
 }
 input:hover{
@@ -27,13 +36,6 @@ input:hover{
 }
 input:focus{
     border-color: black;
-}
-#centered{
-    text-align: center;
-    position: absolute; 
-    top: 50%;
-    left:50%;
-    transform: translate(-50%,-50%)
 }
 
 span{

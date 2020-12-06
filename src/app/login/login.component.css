@@ -1,3 +1,13 @@
+
+#wrapper{
+    
+    background-color: #ffcc33;
+}
+
+#centered{
+    max-width: 350px;
+}
+
 input {
     font-weight: 400;
     box-shadow: 1.5pt 1.5pt 5pt rgba(0,0,0,.5);
@@ -7,7 +17,7 @@ input {
     outline: none;
     margin-bottom: 10pt;
     height: 48px;
-    width: 298px;
+    width: 100%;
     position: relative;
 }
 input:hover{
@@ -16,15 +26,6 @@ input:hover{
 input:focus{
     border-color: black;
 }
-form{
-    display:flex;
-    flex-direction:column;
-    position: absolute;
-    top: 50%;
-    left:50%;
-    transform: translate(-50%,-50%);
-}
-
 span{
     position: absolute;
 }
