@@ -5,15 +5,15 @@
 
         <a href="/" class="logo"></a>
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-            <div>
+            <div class="entry">
                 <input type="text" formControlName="email" placeholder="Email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" value="email"/>
-                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="submitted && f.email.errors" class="error">
                     <div *ngIf="f.email.errors.required">Email is required</div>
                 </div>
             </div>
-            <div>
+            <div class="entry">
                 <input type="password" formControlName="password" placeholder="Password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" value="password"/>
-                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="submitted && f.password.errors" class="error">
                     <div *ngIf="f.password.errors.required">Password is required</div>
                 </div>
             </div>
