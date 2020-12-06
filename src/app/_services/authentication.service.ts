@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -11,7 +11,8 @@ export class AuthenticationService {
     public currentUser: Observable<User>;
     public static loggedInUser: User;
     public readonly rootURL = 'https://localhost:44377';
-
+    private baseUrl = 'https://localhost:44377' + '/login';
+    
     constructor(private http: HttpClient) {
         this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
         this.currentUser = this.currentUserSubject.asObservable();
@@ -22,12 +23,22 @@ export class AuthenticationService {
     }
 
     login(email: string, password: string) {
-        return this.http.get<any>(`${this.rootURL}/login/${email}/${password}`)
+        const header = new HttpHeaders()
+        .set('Content-type', 'application/json');
+        let loginJson = {
+            email: email,
+            password: password
+        };
+        const body = JSON.stringify(loginJson);
+        //gives 400 Ok 
+        return this.http.post<User>(this.baseUrl, body, { headers: header} )
             .pipe(map(user => {
-                // store user details and jwt token in local storage to keep user logged in between page refreshes
-                localStorage.setItem('currentUser', JSON.stringify(user));
-                AuthenticationService.loggedInUser = user;
-                this.currentUserSubject.next(user);
+                if (user && user.token) {
+                    // store user details and jwt token in local storage to keep user logged in between page refreshes
+                    localStorage.setItem('currentUser', JSON.stringify(user));
+                    this.currentUserSubject.next(user);
+                    AuthenticationService.loggedInUser = user;
+                }
                 return user;
             }));
     }
