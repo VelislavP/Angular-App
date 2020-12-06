@@ -59,7 +59,7 @@ button{
 .login-btn{
     transition-delay: background-color 0.5s ease;
     color: black;
-    background-color: #d4ac3c;
+    background-color: #ddb443;
     border-style: solid;
     box-shadow: 1.5pt 1.5pt 5pt rgba(0,0,0,.5);
     
@@ -70,13 +70,13 @@ button{
 .login-btn:hover{
     border-style: none;
 
-    background-color:#ddb443 ;
+    background-color:#ddb443a8;
 }
 .signup-btn{
     color: #ddb443;
     background-color: black;
     border-style: solid;
-    box-shadow: 1.5pt 1.5pt 5pt rgba(0,0,0,.5);
+    box-shadow: 1.5pt 1.5pt 5pt rgba(0,0,0,.6);
 }
 
 .signup-btn:active{
@@ -84,7 +84,7 @@ button{
 }
 
 .signup-btn:hover{
-    background-color: rgba(0, 0, 0, 0.787);
+    background-color: rgb(26, 26, 26);
     border-style: none;
 }
 
