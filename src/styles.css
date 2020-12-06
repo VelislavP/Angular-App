@@ -4,13 +4,13 @@
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
     font-size: 103%;
+    box-sizing: border-box;
 }
 #index{
     background-color: #e0c641;
 }
 .logo {
-    margin-top: 50%;
-    left: 50%;
+    margin: auto;
     display: block;
     text-indent: -9999px;
     width: 280px;
@@ -21,20 +21,23 @@
 }
 button{
     cursor: pointer;
-    margin-bottom: 10pt;
+    margin-bottom: 5pt;
 }
+
+.login-btn, .signup-btn{
+    border-width: 1px;
+    height: 50px;
+    width: 100%;
+    box-shadow: 1.5pt 1.5pt 5pt rgba(0,0,0,.5);
+    outline: none;
+}
+
 .login-btn{
     transition-delay: background-color 0.5s ease;
     color: black;
-    outline: none;
     background-color: #d4ac3c;
     border-style: solid;
     border-color: #d4ac3c;
-    border-width: 1px;
-    height: 50px;
-    width: 304px;
-    box-shadow: 1.5pt 1.5pt 5pt rgba(0,0,0,.5);
-    position: relative;
     
 }
 .login-btn:active{
@@ -47,15 +50,9 @@ button{
 }
 .signup-btn{
     color: #ddb443;
-    outline: none;
     background-color: black;
     border-style: solid;
     border-color: black;
-    border-width: 1px;
-    height: 50px;
-    width: 304px;
-    box-shadow: 1.5pt 1.5pt 5pt rgba(0,0,0,.5);
-    position: relative;
 }
 
 .signup-btn:active{

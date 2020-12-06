@@ -6,12 +6,12 @@ import { first } from 'rxjs/operators';
 import { AlertService, UserService, AuthenticationService } from '../_services';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: 'app-signUp',
+  templateUrl: './signUp.component.html',
+  styleUrls: ['./signUp.component.css']
 })
-export class RegisterComponent implements OnInit {
-    registerForm: FormGroup;
+export class SignUpComponent implements OnInit {
+    signUpForm: FormGroup;
     loading = false;
     submitted = false;
 
@@ -29,7 +29,7 @@ export class RegisterComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.registerForm = this.formBuilder.group({
+        this.signUpForm = this.formBuilder.group({
             firstName: ['', Validators.required],
             lastName: ['', Validators.required],
             email: ['', Validators.required, Validators.email],
@@ -38,18 +38,18 @@ export class RegisterComponent implements OnInit {
     }
 
     // convenience getter for easy access to form fields
-    get f() { return this.registerForm.controls; }
+    get f() { return this.signUpForm.controls; }
 
     onSubmit() {
         this.submitted = true;
 
         // stop here if form is invalid
-        if (this.registerForm.invalid) {
+        if (this.signUpForm.invalid) {
             return;
         }
 
         this.loading = true;
-        this.userService.register(this.registerForm.value)
+        this.userService.signUp(this.signUpForm.value)
             .pipe(first())
             .subscribe(
                 data => {

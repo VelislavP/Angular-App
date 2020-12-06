@@ -10,11 +10,11 @@ export class UserService {
         return this.http.get<User>('/users');
     }
 
-    register(user: User) {
+    signUp(user: User) {
         const header = new HttpHeaders()
         .set('Content-type', 'application/json');
         const body = JSON.stringify(user);
-        const baseUrl = 'https://localhost:44377' + '/register';
+        const baseUrl = 'https://localhost:44377' + '/signUp';
         return this.http.post<User>(baseUrl, body, { headers: header} )
     }
    
