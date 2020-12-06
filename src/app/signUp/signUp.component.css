@@ -11,10 +11,6 @@
     max-width: 700px;
 }
 
-.button-div{
-    padding: 5pt;
-}
-
 button{
     line-height: normal;
     width: 100%;
@@ -54,5 +50,4 @@ span{
     flex-basis: 100%;
     flex: 1;
     margin: 5pt;
-    margin-bottom: 10pt;
 }

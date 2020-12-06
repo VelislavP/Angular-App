@@ -15,7 +15,6 @@ input {
     border-color: white;
     border-width: 1px;
     outline: none;
-    margin-bottom: 10pt;
     height: 48px;
     width: 100%;
     position: relative;
@@ -28,4 +27,8 @@ input:focus{
 }
 span{
     position: absolute;
+}
+.entry{
+    margin-top: 10pt;
+    margin-bottom: 5pt;
 }

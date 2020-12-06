@@ -39,7 +39,8 @@ body{
 }
 button{
     cursor: pointer;
-    margin-bottom: 10pt;
+    margin-bottom: 5pt;
+    margin-top: 5pt;
 }
 
 .error{
