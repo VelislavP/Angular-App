@@ -6,7 +6,7 @@ import { SignUpComponent } from './signUp/signUp.component';
 import { AuthGuard } from './_helpers/auth.guard';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, canActivate: [AuthGuard]},
+  { path: '', component: HomeComponent/*, canActivate: [AuthGuard]*/},
   { path: 'login', component: LoginComponent},
   { path: 'signup', component: SignUpComponent },
   // otherwise redirect to home
