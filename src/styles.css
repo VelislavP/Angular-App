@@ -37,6 +37,16 @@ body{
     background-size:  280px 150px;
     background-repeat: no-repeat;
 }
+.logoHome{
+    margin: auto;
+    display: block;
+    text-indent: -9999px;
+    width: 280px;
+    height: 150px;
+    background: url(images/PictlLogoYellow.svg);
+    background-size:  280px 150px;
+    background-repeat: no-repeat;
+}
 button{
     cursor: pointer;
     margin-bottom: 5pt;
